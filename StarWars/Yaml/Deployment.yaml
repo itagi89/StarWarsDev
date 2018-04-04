@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: starwarsfe
+spec:
+  selector:
+    matchLabels:
+      app: starwars
+  template:
+    metadata:
+      labels:
+        app: starwars
+        component: starwarsfe
+    spec:
+      containers:
+      - name: starwars
+        image: startwarsacr.azurecr.io/starwars:latest
+        ports:
+        - containerPort: 8080
